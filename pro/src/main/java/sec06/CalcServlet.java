@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/calc")
+//@WebServlet("/calc")
 public class CalcServlet extends HttpServlet {
 	private static float USD_RATE = 1124.70F;
 	private static float JPY_RATE = 10.113F;

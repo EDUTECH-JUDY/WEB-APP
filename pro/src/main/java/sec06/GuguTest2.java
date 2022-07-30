@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/guguTest2")
+//@WebServlet("/guguTest2")
 public class GuguTest2 extends HttpServlet {
 	
 	public void init() {

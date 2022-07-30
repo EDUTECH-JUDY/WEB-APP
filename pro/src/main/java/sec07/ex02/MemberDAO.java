@@ -1,41 +1,32 @@
-package sec07;
+package sec07.ex02;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
-public class MemberDAO2 {
+public class MemberDAO {
+	
+	private static final String driver = "oracle.jdbc.driver.OracleDriver";
+	private static final String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	private static final String user = "scott";
+	private static final String pwd = "tiger";
 	
 	private Connection con;
 	private PreparedStatement pstmt;
-	private DataSource dataFactory;
-	
-	public MemberDAO2() {
-		try {
-			Context ctx = new InitialContext();
-			Context envContext = (Context)ctx.lookup("java:/comp/env");
-			dataFactory = (DataSource)envContext.lookup("jdbc/oracle");
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 
-	public List<MemberVO> listMembers() {
-		List<MemberVO> list = new ArrayList<MemberVO>();
+	public List listMembers() {
+		List list = new ArrayList();
 		try {
-			con = dataFactory.getConnection();
+			connDB();
 			String query = "select * from t_member ";
 			System.out.println("prepareStatememt: " + query);
 			pstmt = con.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				String id = rs.getString("id");
 				String pwd = rs.getString("pwd");
@@ -59,4 +50,14 @@ public class MemberDAO2 {
 		return list;
 	}
 
+	private void connDB() {
+		try {
+			Class.forName(driver);
+			System.out.println("Oracle 드라이버 로딩 성공");
+			con = DriverManager.getConnection(url, user, pwd);
+			System.out.println("Connection 생성 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
