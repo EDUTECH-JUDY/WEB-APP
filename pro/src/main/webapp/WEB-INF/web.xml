@@ -10,7 +10,7 @@
   </servlet>
   <servlet>
   	<servlet-name>loadConfig</servlet-name>
-	<servlet-class>sec08.ex10.LoadAppConfig</servlet-class>
+	<servlet-class>sec08.ex06.LoadAppConfig</servlet-class>
 	<load-on-startup>1</load-on-startup>
   </servlet>
   
