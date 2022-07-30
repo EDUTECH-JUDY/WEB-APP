@@ -19,7 +19,7 @@ public class ShowMember extends HttpServlet {
         Boolean isLogon=false;
         HttpSession session =  request.getSession(false);			
 
-        if( session != null){
+        if(session != null){
 	    isLogon=(Boolean)session.getAttribute("isLogon");
            if(isLogon==true){ 
 	        id = (String)session.getAttribute("login.id");
