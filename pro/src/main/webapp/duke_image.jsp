@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>duke_image</title>
+   <meta charset="UTF-8">
+   <title>duke_image</title>
 </head>
 <body>
-   <img src="./image/duke.png" />
+   <img src="./image/duke.png"  />
 </body>
 </html>
