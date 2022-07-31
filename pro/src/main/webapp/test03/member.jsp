@@ -21,7 +21,7 @@
 	MemberVO memberVO = new MemberVO();
 	memberVO.setName(_name);
 	MemberDAO dao = new MemberDAO();
-	List membersList = dao.listMembers(memberVO);
+	List membersList=dao.listMembers(memberVO);
 %>
 	
 <table border='1' width='800' align='center'>
