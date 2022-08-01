@@ -3,19 +3,31 @@
 <%
   request.setCharacterEncoding("UTF-8");
 %>    
+<jsp:useBean id="m" class="sec13.ex01.MemberBean" scope="page" />
 
-<%
-   String id=request.getParameter("id");
-   String pwd = request.getParameter("pwd");
-   String name = request.getParameter("name");
-   String email = request.getParameter("email");
- 
-  
-   MemberBean m =  new MemberBean(id, pwd, name, email);
+<%-- <jsp:setProperty property="id" name="m" value='<%=request.getParameter("id") %>'/> --%>
+<%-- <jsp:setProperty property="pwd" name="m" value='<%=request.getParameter("pwd") %>'/> --%>
+<%-- <jsp:setProperty property="name" name="m" value='<%=request.getParameter("name") %>'/> --%>
+<%-- <jsp:setProperty property="email" name="m" value='<%=request.getParameter("email") %>'/> --%>
+
+<%-- <jsp:setProperty property="id" name="m" param="id"/> --%>
+<%-- <jsp:setProperty property="pwd" name="m" param="pwd"/> --%>
+<%-- <jsp:setProperty property="name" name="m" param="name"/> --%>
+<%-- <jsp:setProperty property="email" name="m" param="email"/> --%>
+
+<%-- <jsp:setProperty property="id" name="m"/> --%>
+<%-- <jsp:setProperty property="pwd" name="m"/> --%>
+<%-- <jsp:setProperty property="name" name="m"/> --%>
+<%-- <jsp:setProperty property="email" name="m"/> --%>
+
+<jsp:setProperty property="*" name="m"/>
+
+<%     
    MemberDAO memberDAO=new MemberDAO();
    memberDAO.addMember(m);
    List membersList = memberDAO.listMembers();	
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
