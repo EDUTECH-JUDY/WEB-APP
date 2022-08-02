@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet("/download.do")
+//@WebServlet("/download.do")
 public class FileDownload extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

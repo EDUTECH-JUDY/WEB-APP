@@ -15,7 +15,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-@WebServlet("/upload.do")
+//@WebServlet("/upload.do")
 public class FileUpload extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
