@@ -11,12 +11,47 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean id="simpleUrlController" class="com.spring.ex05.SimpleUrlController"/>
-	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+<!-- 	<bean id="simpleUrlController" class="com.spring.ex05.SimpleUrlController"/> -->
+<!-- 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> -->
+<!-- 		<property name="mappings"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="/ex21/index.do">simpleUrlController</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/ex21/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="userUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/ex21/index.do">simpleUrlController</prop>
+				<prop key="/ex21/*.do">userController</prop>
 			</props>
 		</property>
 	</bean>
+
+	<bean id="userController" class="com.spring.ex06.UserController">
+		<property name="methodNameResolver">
+			<ref local="userMethodNameResolver" />
+		</property>
+	</bean>
+
+	<bean id="userMethodNameResolver"
+		  class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/ex21/login.do">login</prop>
+				<prop key="/ex21/memberInfo.do">memberInfo</prop> 
+			</props>
+		</property>
+	</bean>
+	
+	
 </beans>
