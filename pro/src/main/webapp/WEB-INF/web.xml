@@ -31,6 +31,12 @@
   	<servlet-name>action</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <listener>
+  	<listener-class>
+  		org.springframework.web.context.ContextLoaderListener
+  	</listener-class>
+  </listener>
 
 
 	<context-param>
@@ -44,6 +50,13 @@
 	<context-param>
 		<param-name>menu_goods</param-name>
 		<param-value>상품조회 상품등록 상품삭제</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/action-service.xml
+			/WEB-INF/config/action-dataSource.xml
+		</param-value>
 	</context-param>
 	
 	<error-page>
